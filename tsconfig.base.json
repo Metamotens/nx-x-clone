@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@x-clone/auth": ["libs/api/auth/src/index.ts"],
+      "@x-clone/users": ["libs/api/users/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@x-clone/auth": ["libs/api/auth/src/index.ts"],
+      "@x-clone/shared": ["libs/api/shared/src/index.ts"],
       "@x-clone/users": ["libs/api/users/src/index.ts"]
     }
   },

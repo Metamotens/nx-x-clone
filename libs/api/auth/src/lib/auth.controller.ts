@@ -1,4 +1,4 @@
-import { Body, Controller, Post, HttpCode, HttpStatus, Get, Request } from '@nestjs/common';
+import { Body, Controller, Post, HttpCode, HttpStatus } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { Public } from '@x-clone/shared';
 
@@ -9,17 +9,12 @@ interface UserLogin {
 
 @Controller('auth')
 export class AuthController {
-    constructor(private authService: AuthService) { }
+    constructor(private readonly authService: AuthService) { }
 
     @Public()
     @HttpCode(HttpStatus.OK)
     @Post('login')
-    login(@Body() userLogin: UserLogin) {
-        return this.authService.login(userLogin.username, userLogin.password);
-    }
-
-    @Get('profile')
-    getProfile(@Request() req: any) {
-        return req.user;
+    login(@Body() { username, password }: UserLogin) {
+        return this.authService.login(username, password);
     }
 }

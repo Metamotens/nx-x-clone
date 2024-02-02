@@ -1,20 +1,12 @@
 import { Injectable } from '@nestjs/common';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type User = any; //TODO
+import { User } from '@prisma/client';
+import { PrismaService } from '@x-clone/prisma';
 
 @Injectable()
 export class UsersService {
-    private readonly users = [
-        {
-            id: 1,
-            username: 'meta',
-            password: '1234',
-        }
-    ];
+    constructor(private prisma: PrismaService) { }
 
-    async findOne(username: string): Promise<User> {
-        return this.users.find(user => user.username === username);
+    async findByMail(email: string): Promise<User | null> {
+        return this.prisma.user.findUnique({ where: { email } });
     }
-
 }

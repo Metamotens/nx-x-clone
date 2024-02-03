@@ -1,7 +1,7 @@
 export interface CustomRequest {
-    user: User;
+  user: User;
 }
 
 interface User {
-    sub: number;
+  sub: number;
 }

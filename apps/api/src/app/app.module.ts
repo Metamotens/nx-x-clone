@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 import { UsersModule } from '@x-clone/users';
-import { AuthGuard, AuthModule } from '@x-clone/auth';
+import { AuthModule } from '@x-clone/auth';
+import { AuthGuard } from '@x-clone/shared';
 import { APP_GUARD } from '@nestjs/core';
 import { PostsModule } from '@x-clone/posts';
 

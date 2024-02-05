@@ -2,4 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'TwitterHeavy';
+  src: url('assets/fonts/Twitter_Chirp-Twitter_Chirp_Heavy.otf');
+}
+
+@font-face {
+  font-family: 'TwitterBold';
+  src: url('assets/fonts/Twitter-Chirp-Bold.otf');
+}

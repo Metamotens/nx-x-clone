@@ -1,0 +1,25 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="handleSubmit.emit()"
+  class="w-80 space-y-4 mx-auto flex flex-col items-center md:items-start"
+>
+  <input
+    type="text"
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+    placeholder="Username"
+  />
+  <input
+    type="password"
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+    placeholder="Password"
+  />
+
+  <button
+    type="submit"
+    class="w-32 text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
+    [ngClass]="formGroup.valid ? 'bg-black' : 'bg-gray-900  cursor-not-allowed'"
+    [disabled]="!formGroup.valid"
+  >
+    Login
+  </button>
+</form>

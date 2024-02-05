@@ -1,7 +1,8 @@
-import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
 import { AuthFormComponent } from '../../ui/login-form/auth-form.component';
+import { AuthStore } from '../../data-access/auth.store';
 
 @Component({
   selector: 'x-clone-login-container',
@@ -10,16 +11,19 @@ import { AuthFormComponent } from '../../ui/login-form/auth-form.component';
   templateUrl: './login-container.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [AuthStore],
 })
 export class LoginContainerComponent {
+  formBuilder = inject(FormBuilder);
+  authStore = inject(AuthStore);
 
-  formGroup: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
+  formGroup = this.formBuilder.nonNullable.group({
+    email: ['', Validators.required],
+    password: ['', Validators.required],
   });
 
   handleSubmit(): void {
-    const { username, password } = this.formGroup.getRawValue();
-    console.log(username, password);
+    const { email, password } = this.formGroup.getRawValue();
+    this.authStore.login({ email, password });
   }
 }

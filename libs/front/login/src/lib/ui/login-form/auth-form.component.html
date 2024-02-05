@@ -3,16 +3,15 @@
   (ngSubmit)="handleSubmit.emit()"
   class="w-80 space-y-4 mx-auto flex flex-col items-center md:items-start"
 >
+  @for (control of formGroup.controls | keyvalue; track control.key; let i =
+  $index; let count = $count) {
   <input
-    type="text"
+    [type]="control.key"
     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-    placeholder="Username"
+    [placeholder]="control.key | titlecase"
+    [formControlName]="control.key"
   />
-  <input
-    type="password"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-    placeholder="Password"
-  />
+  }
 
   <button
     type="submit"

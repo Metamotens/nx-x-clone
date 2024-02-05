@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "api:start": "nx serve api",
+    "api:start:prod": "nx serve api --prod",
+    "front:start": "nx serve front",
     "prisma:studio": "npx prisma studio",
     "prisma:migrate": "npx prisma migrate dev"
   },

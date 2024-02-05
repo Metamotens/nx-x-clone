@@ -9,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      twitterBold: ["TwitterBold", "sans-serif"],
+      twitterHeavy: ["TwitterHeavy", "sans-serif"],
+    },
   },
   plugins: [],
 };

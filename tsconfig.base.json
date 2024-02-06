@@ -16,10 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "@x-clone/auth": ["libs/api/auth/src/index.ts"],
+      "@x-clone/front/posts": ["libs/front/posts/src/index.ts"],
       "@x-clone/login": ["libs/front/login/src/index.ts"],
       "@x-clone/posts": ["libs/api/posts/src/index.ts"],
       "@x-clone/prisma": ["libs/api/prisma/src/index.ts"],
       "@x-clone/shared": ["libs/shared/api/src/index.ts"],
+      "@x-clone/shared/front": ["libs/shared/front/src/index.ts"],
       "@x-clone/users": ["libs/api/users/src/index.ts"]
     }
   },

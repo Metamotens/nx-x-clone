@@ -9,7 +9,7 @@ import { UsersModule } from '@x-clone/users';
     JwtModule.register({
       global: true,
       secret: process.env['JWT_SECRET'],
-      signOptions: { expiresIn: '3600s' },
+      signOptions: { expiresIn: '60s' },
     })],
   controllers: [AuthController],
   providers: [AuthService],

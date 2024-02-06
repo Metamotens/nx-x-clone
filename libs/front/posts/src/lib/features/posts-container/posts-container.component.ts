@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { PostsStore } from '../../data-access/posts.store';
 
 @Component({
   selector: 'x-clone-posts-container',
@@ -9,4 +10,10 @@ import { RouterLink } from '@angular/router';
   templateUrl: './posts-container.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PostsContainerComponent {}
+export class PostsContainerComponent implements OnInit {
+  postStore = inject(PostsStore);
+
+  ngOnInit(): void {
+    this.postStore.loadPosts();
+  }
+}

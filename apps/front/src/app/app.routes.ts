@@ -1,7 +1,8 @@
 import { Route } from '@angular/router';
 import { LoginContainerComponent } from '@x-clone/login';
 import { PostsContainerComponent, PostsDetailContainerComponent } from '@x-clone/front/posts';
-import { authGuard } from '@x-clone/shared/front';
+import { authGuard } from '@x-clone/shared/front/auth';
+
 
 export const appRoutes: Route[] = [
     {

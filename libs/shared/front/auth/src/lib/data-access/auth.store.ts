@@ -1,12 +1,12 @@
-import { inject } from '@angular/core';
+import { InjectionToken, inject } from '@angular/core';
 import { patchState, signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
 import { AuthService } from './auth.service';
 import { tapResponse } from '@ngrx/operators';
 import { Router } from '@angular/router';
 import { pipe, switchMap } from 'rxjs';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { AuthRequest } from '../utils/models/auth-request';
-import { AuthResponse } from '../utils/models/auth-response';
+import { AuthRequest } from '../models/auth-request';
+import { AuthResponse } from '../models/auth-response';
 import { jwtDecode } from 'jwt-decode';
 
 interface AuthState {
@@ -17,9 +17,13 @@ const initialState: AuthState = {
     token: '',
 };
 
+const AUTH_STATE = new InjectionToken<AuthState>('AuthState', {
+    factory: () => initialState,
+});
+
 export const AuthStore = signalStore(
     { providedIn: 'root' },
-    withState(initialState),
+    withState(() => inject(AUTH_STATE)),
     withMethods((store, authService = inject(AuthService), router = inject(Router)) => ({
         login: rxMethod<AuthRequest>(
             pipe(

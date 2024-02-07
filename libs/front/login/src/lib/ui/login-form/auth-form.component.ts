@@ -5,7 +5,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'x-clone-auth-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, AuthFormComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './auth-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

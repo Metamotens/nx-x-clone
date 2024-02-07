@@ -21,7 +21,10 @@
       "@x-clone/posts": ["libs/api/posts/src/index.ts"],
       "@x-clone/prisma": ["libs/api/prisma/src/index.ts"],
       "@x-clone/shared": ["libs/shared/api/src/index.ts"],
-      "@x-clone/shared/front": ["libs/shared/front/src/index.ts"],
+      "@x-clone/shared/front/auth": ["libs/shared/front/auth/src/index.ts"],
+      "@x-clone/shared/front/environment": [
+        "libs/shared/front/environment/src/index.ts"
+      ],
       "@x-clone/users": ["libs/api/users/src/index.ts"]
     }
   },

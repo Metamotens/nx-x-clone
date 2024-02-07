@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } fr
 import { CommonModule } from '@angular/common';
 import { Validators, FormBuilder } from '@angular/forms';
 import { AuthFormComponent } from '../../ui/login-form/auth-form.component';
-import { AuthStore } from '../../data-access/auth.store';
+import { AuthStore } from '@x-clone/shared/front/auth';
 
 @Component({
   selector: 'x-clone-login-container',

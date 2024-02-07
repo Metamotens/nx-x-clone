@@ -8,7 +8,7 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   const authStore = inject(AuthStore);
 
   if (authStore.isAuth()) {
-    req = req.clone({ headers: req.headers.set('Authorization', `Bearer ${authStore.token()}`) })
+    req = req.clone({ headers: req.headers.set('Authorization', `Bearer ${localStorage.getItem('token')}`) })
   } else {
     localStorage.removeItem('token');
     router.navigate(['/login']);

@@ -50,7 +50,8 @@ export const AuthStore = signalStore(
         },
         isAuth(): boolean {
             try {
-                const decodedToken: { exp: number } = jwtDecode(store.token());
+                const token = localStorage.getItem('token') || '';
+                const decodedToken: { exp: number } = jwtDecode(token);
                 const isExpired: boolean = decodedToken.exp < Date.now() / 1000;
                 return !isExpired;
             } catch (e) {

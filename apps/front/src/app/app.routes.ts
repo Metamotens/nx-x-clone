@@ -1,7 +1,8 @@
 import { Route } from '@angular/router';
 import { LoginContainerComponent } from '@x-clone/login';
-import { PostsContainerComponent, PostsDetailContainerComponent } from '@x-clone/front/posts';
 import { authGuard } from '@x-clone/shared/front/auth';
+import { MainComponent } from '@x-clone/main';
+import { PostsContainerComponent, PostsDetailContainerComponent } from '@x-clone/front/posts';
 
 
 export const appRoutes: Route[] = [
@@ -10,17 +11,22 @@ export const appRoutes: Route[] = [
         component: LoginContainerComponent,
     },
     {
-        path: 'posts',
-        component: PostsContainerComponent,
+        path: '',
+        component: MainComponent,
         canActivate: [authGuard],
-    },
-    {
-        path: 'posts/:id',
-        component: PostsDetailContainerComponent,
-        canActivate: [authGuard],
+        children: [
+            {
+                path: 'home',
+                component: PostsContainerComponent,
+            },
+            {
+                path: 'posts/:id',
+                component: PostsDetailContainerComponent,
+            },
+        ]
     },
     {
         path: '**',
-        redirectTo: 'posts',
+        redirectTo: 'home',
     },
 ];

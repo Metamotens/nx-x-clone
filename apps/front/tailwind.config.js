@@ -12,6 +12,8 @@ module.exports = {
     fontFamily: {
       twitterBold: ["TwitterBold", "sans-serif"],
       twitterHeavy: ["TwitterHeavy", "sans-serif"],
+      twitterRegular: ["TwitterRegular", "sans-serif"],
+      twitterMedium: ["TwitterMedium", "sans-serif"],
     },
   },
   plugins: [],

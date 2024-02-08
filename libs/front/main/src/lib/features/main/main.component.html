@@ -1,0 +1,15 @@
+<main class="flex flex-row justify-center">
+  <section class="w-[260px]">
+    <x-clone-sidenav />
+  </section>
+
+  <section class="flex flex-row w-[900px]">
+    <article class="w-[550px] border">
+      <router-outlet />
+    </article>
+
+    <article class="w-[320px] ml-8">
+      <x-clone-right-bar />
+    </article>
+  </section>
+</main>
